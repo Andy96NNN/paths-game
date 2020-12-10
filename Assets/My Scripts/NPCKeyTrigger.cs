@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class NPCKeyTrigger : MonoBehaviour
 {
     public bool isInRange;
+    public GameObject interactIndicator; 
     public KeyCode interactKey;
     public KeyCode continueKey;
     public UnityEvent interactAction; 
@@ -30,6 +31,7 @@ public class NPCKeyTrigger : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player")){
             isInRange = true;
+            interactIndicator.SetActive(true);
             Debug.Log("Player in range");
         }
     }
@@ -37,6 +39,7 @@ public class NPCKeyTrigger : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player")){
             isInRange = false;
+            interactIndicator.SetActive(false);
             Debug.Log("Player not in range");
         }
     }
